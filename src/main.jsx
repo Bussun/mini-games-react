@@ -15,6 +15,10 @@ const router = createBrowserRouter([
     element: <div>Hello from games <Outlet /></div>,
     children: [
       {
+        path: '',
+        element: <div>Select the game you want to play in the menu</div>
+      },
+      {
         path: 'tic-tac-toe',
         element: <TicTacToe />
       },
