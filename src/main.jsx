@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import './index.css'
+import {createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom';
+
+import TicTacToe from './games/TicTacToe';
+import RockPaperScissors from './games/RockPaperScissors';
 
 const router = createBrowserRouter([
   {
@@ -9,8 +11,18 @@ const router = createBrowserRouter([
     element: <div>Hello world</div>
   },
   {
-    path: 'test',
-    element: <div>Hello from test page</div>
+    path: 'games',
+    element: <div>Hello from games <Outlet /></div>,
+    children: [
+      {
+        path: 'tic-tac-toe',
+        element: <TicTacToe />
+      },
+      {
+        path: 'rock-paper-scissors',
+        element: <RockPaperScissors />
+      }
+    ]
   }
 ])
 
