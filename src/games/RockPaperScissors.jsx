@@ -5,6 +5,10 @@ function RockPaperScissors(props) {
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
   const [scoreGoal, setScoreGoal] = useState(0);
+  const [computerChoice, setComputerChoice] = useState("");
+  const [playerChoice, setPlayerChoice] = useState("");
+
+  const choices = ["rock", "paper", "scissors"]
 
   function PlayRandomMove() {}
   function CheckWinner() {}
@@ -28,6 +32,9 @@ function RockPaperScissors(props) {
       <div>
         <p>Score ordinateur: {computerScore}</p>
         <p>Score joueur: {playerScore}</p>
+        <button>Rock</button>
+        <button>Paper</button>
+        <button>Scissors</button>
       </div>
        : <></>}
       {gameState === "ended" ? <div>ended</div> : <></>}
