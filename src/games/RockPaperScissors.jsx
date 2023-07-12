@@ -2,22 +2,40 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 function PreStartGame(props) {
-  const {startGame, setTargetScore} = props;
+  const {startGame, setTargetScore, targetScore} = props;
   return(
     <div>
       <h1>Pre start screen</h1>
-      <button onClick={startGame}>Start Game</button>
-      {(() => {setTargetScore(5)})()}
-      <input type="number" name="test" id="test" value={5} onChange={(e) => {setTargetScore(e.target.value)}}/>
+      <button onClick={startGame} disabled={isNaN(targetScore) === true ? true : targetScore < 1 ? true : false} >Start Game</button>
+      <input type="number" name="test" id="test" min={1} onChange={(e) => {setTargetScore(e.target.value)}}/>
     </div>
   )
 }
 
 function GameScreen(props) {
   const {scoreGoal, endGame} = props;
+
+  const [playerScore, setPlayerScore] = useState(0);
+  const [computerScore, setComputerScore] = useState(0);
+  const [playerMove, setPlayerMove] = useState(undefined);
+  const [computerMove, setComputerMove] = useState(undefined);
+
+  function Player(props) {
+    const {name, score, lastAction} = props;
+    return(
+      <div>
+        <p>{name}</p>
+        <p>Score: {score}</p>
+        <p>Last action: {lastAction}</p>
+      </div>
+    )
+  }
+
   return(
     <div>
       <h1>Game with score goal: {scoreGoal}</h1>
+      <Player name="Player 1" score={playerScore} lastAction={playerMove} />
+      <Player name="Player 2" score={computerScore} lastAction={computerMove} />
       <button onClick={endGame}>End game</button>
     </div>
   )
@@ -60,7 +78,7 @@ function RockPaperScissors(props) {
   return (
     <div id="rock-paper-scissors">
       <h1>Rock Paper Scissors</h1>
-      {gameState === 0 ? <PreStartGame startGame={startGame} setTargetScore={setTargetScore} /> : <></>}
+      {gameState === 0 ? <PreStartGame startGame={startGame} setTargetScore={setTargetScore} targetScore={wantedScore} /> : <></>}
       {gameState === 1 ? <GameScreen scoreGoal={wantedScore} endGame={endGame} /> : <></> }
       {gameState === 2 ? <GameEnded resetGame={resetGame} finalWinner={finalWinner} /> : <></> }
     </div>
