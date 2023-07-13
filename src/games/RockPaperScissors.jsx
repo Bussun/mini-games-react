@@ -6,7 +6,7 @@ function PreStartGame(props) {
   return(
     <div>
       <h1>Pre start screen</h1>
-      <button onClick={startGame} disabled={isNaN(targetScore) === true ? true : targetScore < 1 ? true : false} >Start Game</button>
+      <button onClick={startGame} disabled={isNaN(targetScore) === true ? true : targetScore < 1 ? true : false}>Start Game</button>
       <input type="number" name="test" id="test" min={1} onChange={(e) => {setTargetScore(e.target.value)}}/>
     </div>
   )
@@ -19,6 +19,28 @@ function GameScreen(props) {
   const [computerScore, setComputerScore] = useState(0);
   const [playerMove, setPlayerMove] = useState(undefined);
   const [computerMove, setComputerMove] = useState(undefined);
+
+  const moves = {
+    rock: "scissors",
+    paper: "rock",
+    scissors: "paper"
+  };
+
+  function checkWinner()
+
+  function makeRandomMove() {
+    const choices = Object.keys(moves);
+    const chosenIndex = Math.floor(Math.random() * 3);
+
+    return choices[chosenIndex];
+  }
+
+  function handleMove(playerChosenMove) {
+    setPlayerMove(playerChosenMove);
+
+    const randomComputerMove = makeRandomMove();
+    setComputerMove(randomComputerMove);
+  }
 
   function Player(props) {
     const {name, score, lastAction} = props;
