@@ -19,6 +19,7 @@ function GameScreen(props) {
   const [computerScore, setComputerScore] = useState(0);
   const [playerMove, setPlayerMove] = useState(undefined);
   const [computerMove, setComputerMove] = useState(undefined);
+  const [moveWinner, setMoveWinner] = useState(undefined);
 
   const moves = {
     rock: "scissors",
@@ -26,7 +27,17 @@ function GameScreen(props) {
     scissors: "paper"
   };
 
-  function checkWinner()
+  function checkWinner(move1, move2) {
+    if (move1 === move2) {
+      return 0; //Tie
+    } else if (moves[move1] === move2) {
+      return 1; //Player wins
+    } else if (moves[move2] === move1) {
+      return 2; //Computer wins
+    }
+
+    return undefined;
+  }
 
   function makeRandomMove() {
     const choices = Object.keys(moves);
@@ -37,9 +48,24 @@ function GameScreen(props) {
 
   function handleMove(playerChosenMove) {
     setPlayerMove(playerChosenMove);
+    setComputerMove(makeRandomMove());
+    
+    setMoveWinner(checkWinner(playerMove, computerMove));
+    switch (moveWinner) {
+      case 1:
+        setPlayerScore(playerScore + 1);
+        break;
+      case 2:
+        setComputerScore(computerScore + 1);
+        break;
+      default:
+        break;
+    }
 
-    const randomComputerMove = makeRandomMove();
-    setComputerMove(randomComputerMove);
+    if (playerScore >= scoreGoal || computerScore >= scoreGoal) {
+      setFinalWinner(playerScore >= scoreGoal ? 1 : 2);
+      endGame();
+    }
   }
 
   function Player(props) {
@@ -101,7 +127,7 @@ function RockPaperScissors(props) {
     <div id="rock-paper-scissors">
       <h1>Rock Paper Scissors</h1>
       {gameState === 0 ? <PreStartGame startGame={startGame} setTargetScore={setTargetScore} targetScore={wantedScore} /> : <></>}
-      {gameState === 1 ? <GameScreen scoreGoal={wantedScore} endGame={endGame} /> : <></> }
+      {gameState === 1 ? <GameScreen scoreGoal={wantedScore} endGame={endGame} setFinalWinner={setFinalWinner} /> : <></> }
       {gameState === 2 ? <GameEnded resetGame={resetGame} finalWinner={finalWinner} /> : <></> }
     </div>
   );
