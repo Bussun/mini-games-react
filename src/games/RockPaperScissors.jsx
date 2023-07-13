@@ -22,18 +22,18 @@ function GameScreen(props) {
   const [moveWinner, setMoveWinner] = useState(undefined);
 
   const moves = {
-    "rock": "scissors",
-    "paper": "rock",
-    "scissors": "paper"
+    rock: ["scissors"],
+    paper: ["rock"],
+    scissors: ["paper"]
   };
 
   function checkWinner(move1, move2) {
     console.table(moves);
     if (move1 === move2) {
       return 0; //Tie
-    } else if (moves[`${move1}`] === move2) {
+    } else if (moves[move1].includes(move2)) {
       return 1; //Player wins
-    } else if (moves[`${move2}`] === move1) {
+    } else if (moves[move2].includes(move1)) {
       return 2; //Computer wins
     }
 
@@ -48,23 +48,31 @@ function GameScreen(props) {
   }
 
   function handleMove(playerChosenMove) {
+    let newComputerMove = makeRandomMove();
+    let newPlayerScore = playerScore;
+    let newComputerScore = computerScore;
+
     setPlayerMove(playerChosenMove);
-    setComputerMove(makeRandomMove());
+    setComputerMove(newComputerMove);
     
-    setMoveWinner(checkWinner(playerMove, computerMove));
-    switch (moveWinner) {
+    const won = checkWinner(playerChosenMove, newComputerMove)
+    setMoveWinner(won);
+
+    switch (won) {
       case 1:
         setPlayerScore(playerScore + 1);
+        newPlayerScore += 1;
         break;
       case 2:
         setComputerScore(computerScore + 1);
+        newComputerScore += 1;
         break;
       default:
         break;
     }
 
-    if (playerScore >= scoreGoal || computerScore >= scoreGoal) {
-      setFinalWinner(playerScore >= scoreGoal ? 1 : 2);
+    if (newPlayerScore >= scoreGoal || newComputerScore >= scoreGoal) {
+      setFinalWinner(newPlayerScore >= scoreGoal ? 1 : 2);
       endGame();
     }
   }
@@ -85,7 +93,18 @@ function GameScreen(props) {
       <h1>Game with score goal: {scoreGoal}</h1>
       <Player name="Player 1" score={playerScore} lastAction={playerMove} />
       <Player name="Player 2" score={computerScore} lastAction={computerMove} />
-      <p>The last move winner is: {moveWinner === undefined ? "No one yet" : moveWinner === 1 ? "Player 1" : moveWinner === 2 ? "Computer" : "Something wrong happened"}</p>
+      <p>
+        The last move winner is: 
+        {moveWinner === undefined 
+        ? "No one yet" 
+        : moveWinner === 1 
+        ? "Player 1" 
+        : moveWinner === 2 
+        ? "Computer" 
+        : moveWinner === 0 
+        ? "It's a tie!" 
+        : "Something wrong happened"}
+      </p>
       <div className="buttons">
         <button className="rock" onClick={() => {handleMove("rock")}}>Rock</button>
         <button className="paper" onClick={() => {handleMove("paper")}}>Paper</button>
