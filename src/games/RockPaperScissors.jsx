@@ -22,17 +22,18 @@ function GameScreen(props) {
   const [moveWinner, setMoveWinner] = useState(undefined);
 
   const moves = {
-    rock: "scissors",
-    paper: "rock",
-    scissors: "paper"
+    "rock": "scissors",
+    "paper": "rock",
+    "scissors": "paper"
   };
 
   function checkWinner(move1, move2) {
+    console.table(moves);
     if (move1 === move2) {
       return 0; //Tie
-    } else if (moves[move1] === move2) {
+    } else if (moves[`${move1}`] === move2) {
       return 1; //Player wins
-    } else if (moves[move2] === move1) {
+    } else if (moves[`${move2}`] === move1) {
       return 2; //Computer wins
     }
 
@@ -84,7 +85,12 @@ function GameScreen(props) {
       <h1>Game with score goal: {scoreGoal}</h1>
       <Player name="Player 1" score={playerScore} lastAction={playerMove} />
       <Player name="Player 2" score={computerScore} lastAction={computerMove} />
-      <button onClick={endGame}>End game</button>
+      <p>The last move winner is: {moveWinner === undefined ? "No one yet" : moveWinner === 1 ? "Player 1" : moveWinner === 2 ? "Computer" : "Something wrong happened"}</p>
+      <div className="buttons">
+        <button className="rock" onClick={() => {handleMove("rock")}}>Rock</button>
+        <button className="paper" onClick={() => {handleMove("paper")}}>Paper</button>
+        <button className="scissors" onClick={() => {handleMove("scissors")}}>Scissors</button>
+      </div>
     </div>
   )
 }
