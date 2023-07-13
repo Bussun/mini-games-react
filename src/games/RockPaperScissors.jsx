@@ -28,7 +28,6 @@ function GameScreen(props) {
   };
 
   function checkWinner(move1, move2) {
-    console.table(moves);
     if (move1 === move2) {
       return 0; //Tie
     } else if (moves[move1].includes(move2)) {
@@ -72,8 +71,7 @@ function GameScreen(props) {
     }
 
     if (newPlayerScore >= scoreGoal || newComputerScore >= scoreGoal) {
-      setFinalWinner(newPlayerScore >= scoreGoal ? 1 : 2);
-      endGame();
+      endGame(newPlayerScore >= scoreGoal ? 1 : 2);
     }
   }
 
@@ -152,7 +150,7 @@ function RockPaperScissors(props) {
     <div id="rock-paper-scissors">
       <h1>Rock Paper Scissors</h1>
       {gameState === 0 ? <PreStartGame startGame={startGame} setTargetScore={setTargetScore} targetScore={wantedScore} /> : <></>}
-      {gameState === 1 ? <GameScreen scoreGoal={wantedScore} endGame={endGame} setFinalWinner={setFinalWinner} /> : <></> }
+      {gameState === 1 ? <GameScreen scoreGoal={wantedScore} endGame={endGame} /> : <></> }
       {gameState === 2 ? <GameEnded resetGame={resetGame} finalWinner={finalWinner} /> : <></> }
     </div>
   );
