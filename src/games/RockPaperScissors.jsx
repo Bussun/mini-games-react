@@ -1,19 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 function PreStartGame(props) {
   const {startGame, setTargetScore, targetScore} = props;
+  const {t} = useTranslation();
+
   return(
     <div>
-      <h1>Pre start screen</h1>
-      <button onClick={startGame} disabled={isNaN(targetScore) === true ? true : targetScore < 1 ? true : false}>Start Game</button>
-      <input type="number" name="test" id="test" min={1} onChange={(e) => {setTargetScore(e.target.value)}}/>
+      <p>Choose the number of points needed to win! / {t('rps_choose_score')}</p>
+      <button 
+        onClick={startGame} 
+        disabled={
+          isNaN(targetScore) === true 
+          ? true 
+          : targetScore < 1 
+          ? true 
+          : false
+        }
+      >
+        Start Game / {t('rps_start_game_btn')}
+      </button>
+      <input type="number" min={1} onChange={(e) => {setTargetScore(e.target.value)}}/>
     </div>
   )
 }
 
 function GameScreen(props) {
   const {scoreGoal, endGame} = props;
+  const {t} = useTranslation();
 
   const [playerScore, setPlayerScore] = useState(0);
   const [computerScore, setComputerScore] = useState(0);
@@ -80,15 +94,15 @@ function GameScreen(props) {
     return(
       <div>
         <p>{name}</p>
-        <p>Score: {score}</p>
-        <p>Last action: {lastAction}</p>
+        <p>Score: / {t('rps_gameScreen_playerObj_score')} {score}</p>
+        <p>Last action: / {t('rps_gameScreen_playerObj_lastAction')} {lastAction}</p>
       </div>
     )
   }
 
   return(
     <div>
-      <h1>Game with score goal: {scoreGoal}</h1>
+      <h1>The first to reach {scoreGoal} points wins! / {t('rps_gameScreen_scoreGoal', {scoreGoal})}</h1>
       <Player name="Player 1" score={playerScore} lastAction={playerMove} />
       <Player name="Player 2" score={computerScore} lastAction={computerMove} />
       <p>
@@ -125,6 +139,10 @@ function GameEnded(props) {
 }
 
 function RockPaperScissors(props) {
+  useEffect(() => {
+    document.title = "Rock Paper Scissors | Bussun";
+  }, []);
+  
   const [gameState, setGameState] = useState(0); // 0 Not started; 1 Started; 2 Finished
   const [wantedScore, setWantedScore] = useState(undefined);
   const [finalWinner, setFinalWinner] = useState(undefined); // 1 for player one, 2 for computer/player 2
