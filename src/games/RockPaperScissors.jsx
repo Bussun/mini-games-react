@@ -118,9 +118,9 @@ function GameScreen(props) {
         : "Something wrong happened"}
       </p>
       <div className="buttons">
-        <button className="rock" onClick={() => {handleMove("rock")}}>Rock</button>
-        <button className="paper" onClick={() => {handleMove("paper")}}>Paper</button>
-        <button className="scissors" onClick={() => {handleMove("scissors")}}>Scissors</button>
+        <button className="rock" onClick={() => {handleMove("rock")}}>Pierre</button>
+        <button className="paper" onClick={() => {handleMove("paper")}}>Feuille</button>
+        <button className="scissors" onClick={() => {handleMove("scissors")}}>Ciseaux</button>
       </div>
     </div>
   )
