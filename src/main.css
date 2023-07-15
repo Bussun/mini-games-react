@@ -6,10 +6,25 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  background-color: #2c2f33;
+  padding: .5rem 1rem;
+  min-height: 100vh;
+  background-color: rgb(24,24,27);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
+#root {
+    min-height: 100vh;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+}
+
+.text_center {
+    text-align: center;
+}
+
