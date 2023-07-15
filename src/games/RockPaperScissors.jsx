@@ -165,12 +165,12 @@ function RockPaperScissors(props) {
   }
 
   return (
-    <div id="rock-paper-scissors">
+    <>
       <h1>Rock Paper Scissors</h1>
       {gameState === 0 ? <PreStartGame startGame={startGame} setTargetScore={setTargetScore} targetScore={wantedScore} /> : <></>}
       {gameState === 1 ? <GameScreen scoreGoal={wantedScore} endGame={endGame} /> : <></> }
       {gameState === 2 ? <GameEnded resetGame={resetGame} finalWinner={finalWinner} /> : <></> }
-    </div>
+    </>
   );
 }
 

@@ -7,16 +7,12 @@
 body {
   margin: 0;
   padding: .5rem 1rem;
+  box-sizing: border-box;
   min-height: 100vh;
   background-color: rgb(24,24,27);
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-#root {
-    min-height: 100vh;
 }
 
 .center {

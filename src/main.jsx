@@ -32,7 +32,7 @@ const router = createBrowserRouter([
   }
 ])
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.querySelector('body')).render(
   <React.StrictMode>
     <React.Suspense fallback="Loading...">
       <RouterProvider router={router} />
