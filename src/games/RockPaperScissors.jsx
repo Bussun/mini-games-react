@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { FaHandPaper, FaHandRock, FaHandScissors } from "react-icons/fa";
+import './RockPaperScissors.css';
 
 function PreStartGame(props) {
   const {startGame, setTargetScore, targetScore} = props;
@@ -7,7 +9,7 @@ function PreStartGame(props) {
 
   return(
     <div>
-      <p>Choose the number of points needed to win! / {t('rps_choose_score')}</p>
+      <p>{t('rps_choose_score')}</p>
       <button 
         onClick={startGame} 
         disabled={
@@ -18,7 +20,7 @@ function PreStartGame(props) {
           : false
         }
       >
-        Start Game / {t('rps_start_game_btn')}
+        {t('rps_startGameBtn')}
       </button>
       <input type="number" min={1} onChange={(e) => {setTargetScore(e.target.value)}}/>
     </div>
@@ -94,33 +96,32 @@ function GameScreen(props) {
     return(
       <div>
         <p>{name}</p>
-        <p>Score: / {t('rps_gameScreen_playerObj_score')} {score}</p>
-        <p>Last action: / {t('rps_gameScreen_playerObj_lastAction')} {lastAction}</p>
+        <p>{t('rps_gameScreen_playerObj_score')} {score}</p>
+        <p>{t('rps_gameScreen_playerObj_lastAction')} {lastAction}</p>
       </div>
     )
   }
 
   return(
     <div>
-      <h1>The first to reach {scoreGoal} points wins! / {t('rps_gameScreen_scoreGoal', {scoreGoal})}</h1>
+      <h1>{t('rps_gameScreen_scoreGoal', {scoreGoal})}</h1>
       <Player name="Player 1" score={playerScore} lastAction={playerMove} />
       <Player name="Player 2" score={computerScore} lastAction={computerMove} />
       <p>
-        The last move winner is: 
         {moveWinner === undefined 
-        ? "No one yet" 
+        ? t('rps_gameScreen_lastMoveWinner_noOne')
         : moveWinner === 1 
-        ? "Player 1" 
+        ? t('rps_gameScreen_lastMoveWinner_player1')
         : moveWinner === 2 
-        ? "Computer" 
+        ? t('rps_gameScreen_lastMoveWinner_computer')
         : moveWinner === 0 
-        ? "It's a tie!" 
-        : "Something wrong happened"}
+        ? t('rps_gameScreen_lastMoveWinner_tie')
+        : t('rps_gameScreen_lastMoveWinner_error')}
       </p>
       <div className="buttons">
-        <button className="rock" onClick={() => {handleMove("rock")}}>Pierre</button>
-        <button className="paper" onClick={() => {handleMove("paper")}}>Feuille</button>
-        <button className="scissors" onClick={() => {handleMove("scissors")}}>Ciseaux</button>
+        <button className="rps_actionBtn" onClick={() => {handleMove("rock")}}><FaHandRock /> {t("rps_gameScreen_moveBtns_rock")}</button>
+        <button className="rps_actionBtn" onClick={() => {handleMove("paper")}}><FaHandPaper /> {t("rps_gameScreen_moveBtns_paper")}</button>
+        <button className="rps_actionBtn" onClick={() => {handleMove("scissors")}}><FaHandScissors /> {t("rps_gameScreen_moveBtns_scissors")}</button>
       </div>
     </div>
   )
@@ -139,8 +140,14 @@ function GameEnded(props) {
 }
 
 function RockPaperScissors(props) {
+  const {t} = useTranslation();
   useEffect(() => {
-    document.title = "Rock Paper Scissors | Bussun";
+    document.title = "Rock Paper Scissors | MiniGames";
+    document.body.classList.add("rock-paper-scissors");
+
+    return() => {
+    document.body.classList.remove("rock-paper-scissors");
+    }
   }, []);
   
   const [gameState, setGameState] = useState(0); // 0 Not started; 1 Started; 2 Finished
@@ -166,7 +173,7 @@ function RockPaperScissors(props) {
 
   return (
     <>
-      <h1>Rock Paper Scissors</h1>
+      <h1>{t("rps_mainTitle")}</h1>
       {gameState === 0 ? <PreStartGame startGame={startGame} setTargetScore={setTargetScore} targetScore={wantedScore} /> : <></>}
       {gameState === 1 ? <GameScreen scoreGoal={wantedScore} endGame={endGame} /> : <></> }
       {gameState === 2 ? <GameEnded resetGame={resetGame} finalWinner={finalWinner} /> : <></> }

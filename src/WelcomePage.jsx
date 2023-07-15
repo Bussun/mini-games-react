@@ -19,15 +19,15 @@ function WelcomePage(props) {
                 <a className="center nav_link" href="https://github.com/Bussun/mini-games-react" target="_blank">GitHub <TbExternalLink /></a>
             </nav>
             <div className="content">
-                <h1 className="text_center mainPageTitle">{t("mainPageTitle")}</h1>
-                <h2 className="text_center mainPageSubTitle">Here are a few minigames for you to enjoy!</h2>
+                <h1 className="text_center mainPageTitle">{t("mainPage_title")}</h1>
+                <h2 className="text_center mainPageSubTitle">{t("mainPage_subTitle")}</h2>
                 <div className="gameLinks">
-                    <Link className="gameLink" to="./games/rock-paper-scissors">Rock Paper Scissors</Link>
-                    <Link className="gameLink" to="./games/tic-tac-toe">Tic Tac Toe</Link>
-                    <Link className="gameLink" to="./games/etch-a-sketch">Etch-a-sketch</Link>
+                    <Link className="gameLink" to="./games/rock-paper-scissors">{t("mainPage_gameBtns_rps")}</Link>
+                    <Link className="gameLink" to="./games/tic-tac-toe">{t("mainPage_gameBtns_tictactoe")}</Link>
+                    <Link className="gameLink" to="./games/etch-a-sketch">{t("mainPage_gameBtns_etchsketch")}</Link>
                 </div>
             </div>
-            <footer>Copyright 2023 Denis LEDUC</footer>
+            <footer>Copyright 2023 Denis LEDUC - Mentions légales sur la <a href="https://denisleduc.dev/" style={{color: "white"}}>page d'accueil</a></footer>
         </>
     )
 }
