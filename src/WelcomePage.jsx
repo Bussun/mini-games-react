@@ -20,10 +20,11 @@ function WelcomePage(props) {
             </nav>
             <div className="content">
                 <h1 className="text_center mainPageTitle">{t("mainPageTitle")}</h1>
+                <h2 className="text_center mainPageSubTitle">Here are a few minigames for you to enjoy!</h2>
                 <div className="gameLinks">
-                    <Link to="./games/rock-paper-scissors">Rock Paper Scissors</Link>
-                    <Link to="./games/tic-tac-toe">Tic Tac Toe</Link>
-                    <Link to="./games/etch-a-sketch">Etch-a-sketch</Link>
+                    <Link className="gameLink" to="./games/rock-paper-scissors">Rock Paper Scissors</Link>
+                    <Link className="gameLink" to="./games/tic-tac-toe">Tic Tac Toe</Link>
+                    <Link className="gameLink" to="./games/etch-a-sketch">Etch-a-sketch</Link>
                 </div>
             </div>
             <footer>Copyright 2023 Denis LEDUC</footer>
