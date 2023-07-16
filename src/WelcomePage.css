@@ -25,21 +25,7 @@ body > .content {
 
 .mainPageTitle {
     background: linear-gradient(90deg, #acb6e5, #86fde8);
-    background-clip: text;
-    color: transparent;
-
-    font-size: 2.5rem;
-    max-width: 55vw;
     margin-bottom: 0;
-    letter-spacing: -1px;
-}
-
-.mainPageSubTitle {
-    color: gray;
-    font-size: 1rem;
-    max-width: 55vw;
-    margin-top: 0;
-    font-weight: 400;
 }
 
 .gameLinks {
@@ -63,16 +49,6 @@ body > .content {
 
 
 @media screen and (max-width: 720px) {
-    .mainPageTitle {
-        font-size: 1.5rem;
-        max-width: 80vw;
-    }
-
-    .mainPageSubTitle {
-        font-size: 1rem;
-        max-width: 80vw;
-    }
-
     .gameLinks {
         flex-direction: column;
     }

@@ -1,3 +1,27 @@
 {
-    "mainPageTitle": "Здравейте! Добре дошли в мойта страница!"
+  "mainPageTitle": "Здравейте! Добре дошли в мойта страница!",
+  "mainPage_subTitle": "Here are some games for you to enjoy!",
+  "mainPage_gameBtns_rps": "Камък Ножица Хартия",
+  "mainPage_gameBtns_tictactoe": "Tic Tac Toe",
+  "mainPage_gameBtns_etchsketch": "Etch-a-sketch",
+  "rps_mainTitle": "Камък Ножица Хартия",
+  "rps_preStart_chooseScore": "Choose how many points are needed to win.",
+  "rps_startGameBtn": "Започнете",
+  "rps_gameScreen_scoreGoal": "The first one to score {{scoreGoal}} point(s) wins!",
+  "rps_gameScreen_playerObj_player1": "You",
+  "rps_gameScreen_playerObj_computer": "Computer",
+  "rps_gameScreen_playerObj_score": "Score: ",
+  "rps_gameScreen_playerObj_lastAction": "Last move: ",
+  "rps_gameScreen_actionBtn_rock": "Камък",
+  "rps_gameScreen_actionBtn_paper": "Хартия",
+  "rps_gameScreen_actionBtn_scissors": "Ножица",
+  "rps_gameScreen_lastMoveWinner_noOne": "No one won yet!",
+  "rps_gameScreen_lastMoveWinner_player1": "You won this time!",
+  "rps_gameScreen_lastMoveWinner_computer": "The computer won...",
+  "rps_gameScreen_lastMoveWinner_tie": "It's a tie!",
+  "rps_gameScreen_lastMoveWinner_error": "Uhh, something unexpected happened.",
+  "rps_gameEnded": "The game ended!",
+  "rps_gameEnded_resetBtn": "Reset",
+  "rps_winner_player": "You are the final winner!",
+  "rps_winner_computer": "The computer won... Maybe next time!"
 }

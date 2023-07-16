@@ -13,7 +13,7 @@ function PreStartGame(props) {
 
   return(
     <div className="rps_preStart">
-      <p>{t('rps_preStart_chooseScore')}</p>
+      <p className="rps_preStart_chooseScore text_center">{t('rps_preStart_chooseScore')}</p>
       <div className="rps_preStart_inputCombo">
         <div className="rps_preStart_input">
           <button className="rps_preStart_inputBtn_left btn" onClick={() => {setTargetScore(targetScore - 1)}}><FaMinus /></button>
@@ -108,16 +108,40 @@ function GameScreen(props) {
       <div>
         <p>{name}</p>
         <p>{t('rps_gameScreen_playerObj_score')} {score}</p>
-        <p>{t('rps_gameScreen_playerObj_lastAction')} {lastAction}</p>
+        <p>{t('rps_gameScreen_playerObj_lastAction')} <ShowActionLocale action={lastAction} /></p>
       </div>
     )
   }
 
+  function ShowActionLocale(props) {
+    const {action} = props;
+    let ret;
+    switch (action) {
+      case 'paper':
+        ret = t("rps_gameScreen_actionBtn_paper");
+        break;
+      case 'rock':
+        ret = t("rps_gameScreen_actionBtn_rock");
+        break;
+      case 'scissors':
+        ret = t("rps_gameScreen_actionBtn_scissors");
+        break;
+      default:
+        break;
+    }
+
+    return(
+      <>{ret}</>
+    )
+  }
+
   return(
-    <div>
-      <h1>{t('rps_gameScreen_scoreGoal', {scoreGoal})}</h1>
-      <Player name="Player 1" score={playerScore} lastAction={playerMove} />
-      <Player name="Player 2" score={computerScore} lastAction={computerMove} />
+    <div className="rps_gameScreen">
+      <h2 className="rps_gameScreen_scoreGoal">{t('rps_gameScreen_scoreGoal', {scoreGoal})}</h2>
+      <div className="rps_gameScreen_players">
+        <Player name={t("rps_gameScreen_playerObj_player1")} score={playerScore} lastAction={playerMove} />
+        <Player name={t("rps_gameScreen_playerObj_computer")} score={computerScore} lastAction={computerMove} />
+      </div>
       <p>
         {moveWinner === undefined 
         ? t('rps_gameScreen_lastMoveWinner_noOne')
@@ -129,10 +153,10 @@ function GameScreen(props) {
         ? t('rps_gameScreen_lastMoveWinner_tie')
         : t('rps_gameScreen_lastMoveWinner_error')}
       </p>
-      <div className="buttons">
-        <button className="rps_actionBtn" onClick={() => {handleMove("rock")}}><FaHandRock /> {t("rps_gameScreen_moveBtns_rock")}</button>
-        <button className="rps_actionBtn" onClick={() => {handleMove("paper")}}><FaHandPaper /> {t("rps_gameScreen_moveBtns_paper")}</button>
-        <button className="rps_actionBtn" onClick={() => {handleMove("scissors")}}><FaHandScissors /> {t("rps_gameScreen_moveBtns_scissors")}</button>
+      <div className="rps_gameScreen_buttons">
+        <button className="rps_gameScreen_actionBtn btn" onClick={() => {handleMove("rock")}}><FaHandRock /> {t("rps_gameScreen_actionBtn_rock")}</button>
+        <button className="rps_gameScreen_actionBtn btn" onClick={() => {handleMove("paper")}}><FaHandPaper /> {t("rps_gameScreen_actionBtn_paper")}</button>
+        <button className="rps_gameScreen_actionBtn btn" onClick={() => {handleMove("scissors")}}><FaHandScissors /> {t("rps_gameScreen_actionBtn_scissors")}</button>
       </div>
     </div>
   )
@@ -142,10 +166,10 @@ function GameEnded(props) {
   const {resetGame, finalWinner} = props;
   const { t } = useTranslation();
   return(
-    <div>
-      <h1>Game finished</h1>
-      <h2>The final winner is {finalWinner === 1 ? t("rps_winner_player") : finalWinner === 2 ? t("rps_winner_computer") : "undefined"}</h2>
-      <button onClick={resetGame}>Reset</button>
+    <div className="rps_gameEnded">
+      <h2>{t("rps_gameEnded")}</h2>
+      <h2>{finalWinner === 1 ? t("rps_winner_player") : finalWinner === 2 ? t("rps_winner_computer") : "undefined"}</h2>
+      <button onClick={resetGame} className="btn">{t("rps_gameEnded_resetBtn")}</button>
     </div>
   )
 }
@@ -188,7 +212,7 @@ function RockPaperScissors(props) {
 
   return (
     <>
-      <h1>{t("rps_mainTitle")}</h1>
+      <h1 className="rps_mainTitle">{t("rps_mainTitle")}</h1>
       {gameState === 0 ? <PreStartGame startGame={startGame} setTargetScore={setTargetScore} targetScore={wantedScore} /> : <></>}
       {gameState === 1 ? <GameScreen scoreGoal={wantedScore} endGame={endGame} /> : <></> }
       {gameState === 2 ? <GameEnded resetGame={resetGame} finalWinner={finalWinner} /> : <></> }

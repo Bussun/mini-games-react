@@ -5,10 +5,29 @@
     align-items: center;
 }
 
+.rps_mainTitle {
+    background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+    margin-bottom: 0;
+}
+
+.rps_preStart,
+.rps_gameScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rps_preStart_chooseScore,
+.rps_gameScreen_scoreGoal {
+    color: gray;
+    margin-top: 0;
+}
+
 .rps_preStart_inputCombo {
     display: flex;
     gap: .5rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .rps_preStart_input {
@@ -34,5 +53,28 @@
 .rps_preStart_inputBtn_right {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.rps_gameScreen_players {
+    display: flex;
+    gap: 2rem;
+}
+
+.rps_gameScreen_buttons {
+    display: flex;
+    gap: .5rem;
+}
+
+.rps_gameScreen_actionBtn {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rps_gameEnded {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }

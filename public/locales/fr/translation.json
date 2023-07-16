@@ -1,3 +1,27 @@
 {
-    "mainPageTitle": "Bonjour! Bienvenue sur les jeux de Bussun!"
+    "mainPage_title": "Bienvenue sur les jeux de Denis!",
+    "mainPage_subTitle": "Voici quelques jeux pour vous divertir!",
+    "mainPage_gameBtns_rps": "Pierre Feuille Ciseaux",
+    "mainPage_gameBtns_tictactoe": "Morpion",
+    "mainPage_gameBtns_etchsketch": "Etch-a-sketch",
+    "rps_mainTitle": "Pierre Feuille Ciseaux",
+    "rps_preStart_chooseScore": "Choisissez le nombre de points nécessaires pour gagner.",
+    "rps_startGameBtn": "Commencer",
+    "rps_gameScreen_scoreGoal": "Le premier à marquer {{scoreGoal}} point(s) gagne!",
+    "rps_gameScreen_playerObj_player1": "Vous",
+    "rps_gameScreen_playerObj_computer": "Ordinateur",
+    "rps_gameScreen_playerObj_score": "Score: ",
+    "rps_gameScreen_playerObj_lastAction": "Dernière action: ",
+    "rps_gameScreen_actionBtn_rock": "Pierre",
+    "rps_gameScreen_actionBtn_paper": "Feuille",
+    "rps_gameScreen_actionBtn_scissors": "Ciseaux",
+    "rps_gameScreen_lastMoveWinner_noOne": "Personne n'a encore gagné!",
+    "rps_gameScreen_lastMoveWinner_player1": "Vous avez gagné cette fois-ci!",
+    "rps_gameScreen_lastMoveWinner_computer": "L'ordinateur a gagné...",
+    "rps_gameScreen_lastMoveWinner_tie": "Égalité!",
+    "rps_gameScreen_lastMoveWinner_error": "Euhh, une erreur est survenue.",
+    "rps_gameEnded": "Partie terminée!",
+    "rps_gameEnded_resetBtn": "Réinitialiser",
+    "rps_winner_player": "Vous êtes le vainqueur de cette partie!",
+    "rps_winner_computer": "L'ordinateur a gagné... Peut être la prochaine fois!"
 }
