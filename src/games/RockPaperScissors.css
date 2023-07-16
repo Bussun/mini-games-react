@@ -1,3 +1,38 @@
-.rock-paper-scissors * {
-    border: 1px solid red;
+.rock-paper-scissors {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rps_preStart_inputCombo {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.rps_preStart_input {
+    display: flex;
+}
+
+.rps_preStart_inputValue {
+    color: white;
+    padding: .5rem 1rem;
+    background-color: rgb(44,44,47);
+    text-align: center;
+}
+
+.rps_preStart_inputBtn_right {
+    border-radius: 0 5px 5px 0;
+}
+
+.rps_preStart_inputBtn_left {
+    border-radius: 5px 0 0 5px;
+}
+
+.rps_preStart_inputBtn_left,
+.rps_preStart_inputBtn_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

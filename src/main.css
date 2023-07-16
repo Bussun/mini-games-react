@@ -24,3 +24,18 @@ body {
     text-align: center;
 }
 
+.btn {
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  padding: .5rem 1rem;
+  background-color: rgb(44,44,47);
+  transition: .2s all;
+  text-align: center;
+  border: none;
+  font-size: 1rem;
+}
+.btn:hover {
+  background-color: rgb(211,211,214);
+  color: black;
+}

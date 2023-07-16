@@ -1,28 +1,39 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FaHandPaper, FaHandRock, FaHandScissors } from "react-icons/fa";
+import { FaHandPaper, FaHandRock, FaHandScissors, FaPlus, FaMinus } from "react-icons/fa";
 import './RockPaperScissors.css';
 
 function PreStartGame(props) {
   const {startGame, setTargetScore, targetScore} = props;
   const {t} = useTranslation();
 
+  useEffect(() => {
+    setTargetScore(1);
+  }, [])
+
   return(
-    <div>
-      <p>{t('rps_choose_score')}</p>
-      <button 
-        onClick={startGame} 
-        disabled={
-          isNaN(targetScore) === true 
-          ? true 
-          : targetScore < 1 
-          ? true 
-          : false
-        }
-      >
-        {t('rps_startGameBtn')}
-      </button>
-      <input type="number" min={1} onChange={(e) => {setTargetScore(e.target.value)}}/>
+    <div className="rps_preStart">
+      <p>{t('rps_preStart_chooseScore')}</p>
+      <div className="rps_preStart_inputCombo">
+        <div className="rps_preStart_input">
+          <button className="rps_preStart_inputBtn_left btn" onClick={() => {setTargetScore(targetScore - 1)}}><FaMinus /></button>
+          <span className="rps_preStart_inputValue">{isNaN(targetScore) === true ? '' : targetScore}</span>
+          <button className="rps_preStart_inputBtn_right btn" onClick={() => {setTargetScore(targetScore + 1)}}><FaPlus /></button>
+        </div>
+        <button 
+          onClick={startGame} 
+          className="btn"
+          disabled={
+            isNaN(targetScore) === true 
+            ? true 
+            : targetScore < 1 
+            ? true 
+            : false
+          }
+        >
+          {t('rps_startGameBtn')}
+        </button>
+      </div>
     </div>
   )
 }
@@ -155,7 +166,11 @@ function RockPaperScissors(props) {
   const [finalWinner, setFinalWinner] = useState(undefined); // 1 for player one, 2 for computer/player 2
 
   const setTargetScore = (score) => {
-    setWantedScore(Number.parseInt(score));
+    if (score < 1) {return}
+    else if (isNaN(score) === true) {return}
+    else {
+      setWantedScore(Number.parseInt(score));
+    }
   }
 
   const startGame = () => {
