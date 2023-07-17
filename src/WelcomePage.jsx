@@ -7,11 +7,12 @@ import { useEffect } from "react";
 function WelcomePage(props) {
     const {t} = useTranslation();
     useEffect(() => {
+        document.title = t("mainPage_docTitle");
         document.body.classList.add("welcome_page");
         return() => {
             document.body.classList.remove("welcome_page");
         }
-    }, [])
+    }, []);
 
     return(
         <>

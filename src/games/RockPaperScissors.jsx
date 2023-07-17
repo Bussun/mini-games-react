@@ -177,7 +177,7 @@ function GameEnded(props) {
 function RockPaperScissors(props) {
   const {t} = useTranslation();
   useEffect(() => {
-    document.title = "Rock Paper Scissors | MiniGames";
+    document.title = t("rps_docTitle");
     document.body.classList.add("rock-paper-scissors");
 
     return() => {
