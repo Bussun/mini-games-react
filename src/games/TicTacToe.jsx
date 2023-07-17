@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import { useTranslation } from 'react-i18next';
+import BackHome from '../Components/BackHome';
 import './TicTacToe.css';
 
 function PreStart(props) {
@@ -24,6 +25,7 @@ function TicTacToe(props) {
     
     return(
         <>
+            <BackHome />
             <h1 className="ttt_mainTitle">{t("ttt_mainTitle")}</h1>
             {gameStarted === false ? <PreStart /> : <div>Game wow!</div>}
         </>

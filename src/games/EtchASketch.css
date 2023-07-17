@@ -1,0 +1,16 @@
+.etch-a-sketch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.eas_mainTitle {
+    background: #43C6AC;
+    background: linear-gradient(to right, #F8FFAE, #43C6AC);
+    margin-bottom: 0;
+}
+
+.eas_noMobileText {
+    margin-top: 0;
+}

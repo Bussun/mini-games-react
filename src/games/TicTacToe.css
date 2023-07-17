@@ -8,4 +8,5 @@
 .ttt_mainTitle {
   background: #F7971E;
   background: linear-gradient(to right, #FFD200, #F7971E);
+  margin-bottom: 0;
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { FaHandPaper, FaHandRock, FaHandScissors, FaPlus, FaMinus } from "react-icons/fa";
+import BackHome from "../Components/BackHome";
 import './RockPaperScissors.css';
 
 function PreStartGame(props) {
@@ -212,6 +213,7 @@ function RockPaperScissors(props) {
 
   return (
     <>
+      <BackHome />
       <h1 className="rps_mainTitle">{t("rps_mainTitle")}</h1>
       {gameState === 0 ? <PreStartGame startGame={startGame} setTargetScore={setTargetScore} targetScore={wantedScore} /> : <></>}
       {gameState === 1 ? <GameScreen scoreGoal={wantedScore} endGame={endGame} /> : <></> }

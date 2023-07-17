@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 import "./EtchASketch.css";
+import BackHome from "../Components/BackHome";
 
 function EtchASketch(props) {
     const {t} = useTranslation();
@@ -16,6 +17,8 @@ function EtchASketch(props) {
 
   return (
     <>
+      <h1 className="eas_mainTitle">{t("eas_mainTitle")}</h1>
+      <BackHome />
       {isMobile === false 
       ? <div className="eas_content">
             <div className="eas_grid-container"></div>
@@ -27,7 +30,7 @@ function EtchASketch(props) {
             </div>
         </div>
       : <div className="eas_noMobile">
-          <h2 className="eas_noMobileText">This app requires a desktop browser to work properly.</h2>
+          <h2 className="eas_noMobileText text_center">This app requires a desktop browser to work properly.</h2>
         </div>
       }
     </>
