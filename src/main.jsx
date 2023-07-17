@@ -7,6 +7,7 @@ import './main.css';
 import WelcomePage from './WelcomePage';
 import TicTacToe from './games/TicTacToe';
 import RockPaperScissors from './games/RockPaperScissors';
+import EtchASketch from './games/EtchASketch';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: 'rock-paper-scissors',
         element: <RockPaperScissors />
+      },
+      {
+        path: 'etch-a-sketch',
+        element: <EtchASketch />
       }
     ]
   }

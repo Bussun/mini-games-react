@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { TbExternalLink } from 'react-icons/tb';
 import './WelcomePage.css';
 import { useEffect } from "react";
+import { isMobile } from "react-device-detect";
 
 function WelcomePage(props) {
     const {t} = useTranslation();
@@ -25,7 +26,7 @@ function WelcomePage(props) {
                 <div className="gameLinks">
                     <Link className="gameLink" to="./games/rock-paper-scissors">{t("mainPage_gameBtns_rps")}</Link>
                     <Link className="gameLink" to="./games/tic-tac-toe">{t("mainPage_gameBtns_tictactoe")}</Link>
-                    <Link className="gameLink" to="./games/etch-a-sketch">{t("mainPage_gameBtns_etchsketch")}</Link>
+                    {isMobile === true ? <></> : <Link className="gameLink" to="./games/etch-a-sketch">{t("mainPage_gameBtns_etchsketch")}</Link>}
                 </div>
             </div>
             <footer>Copyright 2023 Denis LEDUC - Mentions légales sur la <a href="https://denisleduc.dev/" style={{color: "white"}}>page d'accueil</a></footer>
