@@ -78,7 +78,7 @@ function EtchASketch(props) {
         <div className="eas_content">
           <div className="eas_gridContainer"></div>
           <div className="eas_controls">
-            <input type="color" name="colorSel" id="colorSel" />
+            <input type="color" name="colorSel" id="colorSel" onChange={(e) => {color.current = e.target.value}} />
             <button className="btn eas_clearGridBtn" onClick={clearGrid}>
               Clear grid
             </button>
