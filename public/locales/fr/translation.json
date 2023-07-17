@@ -4,7 +4,7 @@
     "mainPage_subTitle": "Voici quelques jeux pour vous divertir!",
     "mainPage_gameBtns_rps": "Pierre Feuille Ciseaux",
     "mainPage_gameBtns_tictactoe": "Morpion",
-    "mainPage_gameBtns_etchsketch": "Etch-a-sketch",
+    "mainPage_gameBtns_etchsketch": "Écran magique",
 
     "rps_docTitle": "Pierre Feuille Ciseaux | Mini jeux de Denis",
     "rps_mainTitle": "Pierre Feuille Ciseaux",
@@ -31,8 +31,8 @@
     "ttt_docTitle": "Morpion | Mini jeux de Denis",
     "ttt_mainTitle": "Morpion",
 
-    "eas_docTitle": "Etch-a-sketch | Mini Jeux de Denis",
-    "eas_mainTitle": "Etch-a-sketch",
+    "eas_docTitle": "Écran magique | Mini Jeux de Denis",
+    "eas_mainTitle": "Écran magique",
     "eas_controls_clearGridBtn": "Tout effacer",
     "eas_controls_newGridBtn": "Nouvelle grille",
     "eas_controls_randomColorsBtn": "Couleurs aléatoires",
