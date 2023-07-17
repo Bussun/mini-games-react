@@ -4,6 +4,7 @@
     "mainPage_gameBtns_rps": "Pierre Feuille Ciseaux",
     "mainPage_gameBtns_tictactoe": "Morpion",
     "mainPage_gameBtns_etchsketch": "Etch-a-sketch",
+
     "rps_mainTitle": "Pierre Feuille Ciseaux",
     "rps_preStart_chooseScore": "Choisissez le nombre de points nécessaires pour gagner.",
     "rps_startGameBtn": "Commencer",
@@ -23,5 +24,13 @@
     "rps_gameEnded": "Partie terminée!",
     "rps_gameEnded_resetBtn": "Réinitialiser",
     "rps_winner_player": "Vous êtes le vainqueur de cette partie!",
-    "rps_winner_computer": "L'ordinateur a gagné... Peut être la prochaine fois!"
+    "rps_winner_computer": "L'ordinateur a gagné... Peut être la prochaine fois!",
+
+    "eas_docTitle": "Etch-a-sketch | Mini Jeux de Denis",
+    "eas_mainTitle": "Etch-a-sketch",
+    "eas_controls_clearGridBtn": "Tout effacer",
+    "eas_controls_newGridBtn": "Nouvelle grille",
+    "eas_controls_randomColorsBtn": "Couleurs aléatoires",
+    "eas_newGrid_sizePrompt": "Veuillez saisir la taille de la nouvelle grille. (Entre 1 et 100)",
+    "eas_newGrid_invalidValue": "Valeur invalide. Utilisation de la taille par défaut de 64x64."
 }

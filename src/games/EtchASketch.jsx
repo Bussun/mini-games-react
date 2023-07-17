@@ -13,7 +13,7 @@ function EtchASketch(props) {
     if (isMobile === false) {
         const gridContainer = document.querySelector(".eas_gridContainer");
         setGrid(gridContainer);
-        createGrid(3, document.querySelector(".eas_gridContainer"));
+        createGrid(64, document.querySelector(".eas_gridContainer"));
     }
 
     return () => {
@@ -28,7 +28,6 @@ function EtchASketch(props) {
   const isRandomColor = useRef(false);
 
   function paintPixel(e) {
-    console.log(isRandomColor.current);
     if (isRandomColor.current) {
       e.target.style.backgroundColor = getRandomColor();
     } else {
@@ -74,10 +73,10 @@ function EtchASketch(props) {
   }
 
   function askSize() {
-    let gridSize = Number(prompt('How large would you like the grid to be ? (Enter a value between 1 and 100.)'));
+    let gridSize = Number(prompt(t("eas_newGrid_sizePrompt")));
     if (isNaN(gridSize)) {
       gridSize = 64;
-      alert('You didn\'t enter a number. Using default grid size: 64x64');
+      alert(t("eas_newGrid_invalidValue"));
     } else if (gridSize > 100) {
       gridSize = 100;
     } else if (gridSize < 1) {
@@ -96,10 +95,8 @@ function EtchASketch(props) {
           <div className="eas_gridContainer"></div>
           <div className="eas_controls">
             <input type="color" name="colorSel" id="eas_colorSel" onChange={(e) => {color.current = e.target.value}} />
-            <button className="btn eas_btn" onClick={clearGrid}>
-              Clear grid
-            </button>
-            <button className="btn eas_btn" onClick={askSize}>New grid</button>
+            <button className="btn eas_btn" onClick={clearGrid}>{t("eas_controls_clearGridBtn")}</button>
+            <button className="btn eas_btn" onClick={askSize}>{t("eas_controls_newGridBtn")}</button>
             <button
               className="btn eas_btn"
               onClick={(e) => {
@@ -107,14 +104,14 @@ function EtchASketch(props) {
                 e.target.classList.toggle('enabled');
               }}
             >
-              Random colors
+              {t("eas_controls_randomColorsBtn")}
             </button>
           </div>
         </div>
       ) : (
         <div className="eas_noMobile">
           <h2 className="eas_noMobileText text_center">
-            This app requires a desktop browser to work properly.
+            {t("eas_noMobileText")}
           </h2>
         </div>
       )}
