@@ -52,7 +52,8 @@ h2 {
   border: none;
   font-size: 1rem;
 }
-.btn:hover {
+.btn:hover,
+.btn.enabled {
   background-color: rgb(211,211,214);
   color: black;
 }
