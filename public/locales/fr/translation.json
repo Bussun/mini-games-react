@@ -1,10 +1,12 @@
 {
+    "mainPage_docTitle": "Mini Jeux de Denis",
     "mainPage_title": "Bienvenue sur les jeux de Denis!",
     "mainPage_subTitle": "Voici quelques jeux pour vous divertir!",
     "mainPage_gameBtns_rps": "Pierre Feuille Ciseaux",
     "mainPage_gameBtns_tictactoe": "Morpion",
     "mainPage_gameBtns_etchsketch": "Etch-a-sketch",
 
+    "rps_docTitle": "Pierre Feuille Ciseaux | Mini jeux de Denis",
     "rps_mainTitle": "Pierre Feuille Ciseaux",
     "rps_preStart_chooseScore": "Choisissez le nombre de points nécessaires pour gagner.",
     "rps_startGameBtn": "Commencer",
@@ -26,11 +28,15 @@
     "rps_winner_player": "Vous êtes le vainqueur de cette partie!",
     "rps_winner_computer": "L'ordinateur a gagné... Peut être la prochaine fois!",
 
+    "ttt_docTitle": "Morpion | Mini jeux de Denis",
+    "ttt_mainTitle": "Morpion",
+
     "eas_docTitle": "Etch-a-sketch | Mini Jeux de Denis",
     "eas_mainTitle": "Etch-a-sketch",
     "eas_controls_clearGridBtn": "Tout effacer",
     "eas_controls_newGridBtn": "Nouvelle grille",
     "eas_controls_randomColorsBtn": "Couleurs aléatoires",
     "eas_newGrid_sizePrompt": "Veuillez saisir la taille de la nouvelle grille. (Entre 1 et 100)",
-    "eas_newGrid_invalidValue": "Valeur invalide. Utilisation de la taille par défaut de 64x64."
+    "eas_newGrid_invalidValue": "Valeur invalide. Utilisation de la taille par défaut de 64x64.",
+    "eas_noMobileText": "Ce mini jeu requiert un navigateur PC pour fonctionner correctement."
 }

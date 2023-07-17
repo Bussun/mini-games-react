@@ -6,7 +6,7 @@ import './TicTacToe.css';
 function PreStart(props) {
     return(
         <div>
-            Not started yet.
+            Work In Progress / En cours de création / В процес на създаване
         </div>
     )
 }

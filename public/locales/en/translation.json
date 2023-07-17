@@ -1,10 +1,12 @@
 {
+    "mainPage_docTitle": "Denis Mini Games",
     "mainPage_title": "Hello and welcome to Bussun's games!",
     "mainPage_subTitle": "Here are some games for you to enjoy!",
     "mainPage_gameBtns_rps": "Rock Paper Scissors",
     "mainPage_gameBtns_tictactoe": "Tic Tac Toe",
     "mainPage_gameBtns_etchsketch": "Etch-a-sketch",
 
+    "rps_docTitle": "Rock Paper Scissors | Denis Mini Games",
     "rps_mainTitle": "Rock Paper Scissors",
     "rps_preStart_chooseScore": "Choose how many points are needed to win.",
     "rps_startGameBtn": "Start",
@@ -26,11 +28,15 @@
     "rps_winner_player": "You are the final winner!",
     "rps_winner_computer": "The computer won... Maybe next time!",
 
+    "ttt_docTitle": "Tic Tac Toe | Denis Mini Games",
+    "ttt_mainTitle": "Tic Tac Toe",
+
     "eas_docTitle": "Etch-a-sketch | Denis Mini Games",
     "eas_mainTitle": "Etch-a-sketch",
     "eas_controls_clearGridBtn": "Clear grid",
     "eas_controls_newGridBtn": "New grid",
     "eas_controls_randomColorsBtn": "Random colors",
     "eas_newGrid_sizePrompt": "Please enter the size of the new grid. (Between 1 and 100)",
-    "eas_newGrid_invalidValue": "Invalid value. Defaulting to 64x64."
+    "eas_newGrid_invalidValue": "Invalid value. Defaulting to 64x64.",
+    "eas_noMobileText": "This app requires a desktop browser to work properly."
 }
