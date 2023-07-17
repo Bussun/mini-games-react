@@ -15,6 +15,36 @@
     margin-top: 0;
 }
 
+.eas_content {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.eas_controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.eas_controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+  
+#eas_colorSel {
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0;
+}
+
 .eas_gridContainer {
     flex: 0 0 auto;
     box-shadow: 0px 0px 35px 0px rgba(0,0,0,1);
@@ -22,4 +52,9 @@
     height: 500px;
     background-color: white;
     display: grid;
+}
+
+.eas_btn {
+    width: 200px;
+    height: 50px;
 }

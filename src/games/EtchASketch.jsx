@@ -10,9 +10,11 @@ function EtchASketch(props) {
     document.title = t("eas_docTitle");
     document.body.classList.add("etch-a-sketch");
 
-    const gridContainer = document.querySelector(".eas_gridContainer");
-    setGrid(gridContainer);
-    createGrid(3, document.querySelector(".eas_gridContainer"));
+    if (isMobile === false) {
+        const gridContainer = document.querySelector(".eas_gridContainer");
+        setGrid(gridContainer);
+        createGrid(3, document.querySelector(".eas_gridContainer"));
+    }
 
     return () => {
       document.body.classList.remove("etch-a-sketch");
@@ -70,6 +72,21 @@ function EtchASketch(props) {
       pixel.style.backgroundColor = "#FFFFFF";
     });
   }
+
+  function askSize() {
+    let gridSize = Number(prompt('How large would you like the grid to be ? (Enter a value between 1 and 100.)'));
+    if (isNaN(gridSize)) {
+      gridSize = 64;
+      alert('You didn\'t enter a number. Using default grid size: 64x64');
+    } else if (gridSize > 100) {
+      gridSize = 100;
+    } else if (gridSize < 1) {
+      gridSize = 1;
+    }
+  
+    createGrid(gridSize, grid);
+  }
+
   return (
     <>
       <h1 className="eas_mainTitle">{t("eas_mainTitle")}</h1>
@@ -78,13 +95,13 @@ function EtchASketch(props) {
         <div className="eas_content">
           <div className="eas_gridContainer"></div>
           <div className="eas_controls">
-            <input type="color" name="colorSel" id="colorSel" onChange={(e) => {color.current = e.target.value}} />
-            <button className="btn eas_clearGridBtn" onClick={clearGrid}>
+            <input type="color" name="colorSel" id="eas_colorSel" onChange={(e) => {color.current = e.target.value}} />
+            <button className="btn eas_btn" onClick={clearGrid}>
               Clear grid
             </button>
-            <button className="btn eas_newGridBtn">New grid</button>
+            <button className="btn eas_btn" onClick={askSize}>New grid</button>
             <button
-              className="btn eas_randomColorBtn"
+              className="btn eas_btn"
               onClick={(e) => {
                 isRandomColor.current = !isRandomColor.current;
                 e.target.classList.toggle('enabled');
