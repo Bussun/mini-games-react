@@ -4,6 +4,7 @@ import { TbExternalLink } from 'react-icons/tb';
 import './WelcomePage.css';
 import { useEffect } from "react";
 import { isMobile } from "react-device-detect";
+import LangSwitch from "./Components/LangSwitch";
 
 function WelcomePage(props) {
     const {t} = useTranslation();
@@ -18,6 +19,7 @@ function WelcomePage(props) {
     return(
         <>
             <nav id="nav">
+                <LangSwitch />
                 <a className="center nav_link" href="https://github.com/Bussun/mini-games-react" target="_blank">GitHub <TbExternalLink /></a>
             </nav>
             <div className="content">
