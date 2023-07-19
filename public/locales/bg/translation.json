@@ -45,7 +45,7 @@
   "eas_controls_clearGridBtn": "Изтриване на всичко",
   "eas_controls_newGridBtn": "Нова мрежа",
   "eas_controls_randomColorsBtn": "Случайни цветове",
-  "eas_newGrid_sizePrompt": "Моля въведете размерата на новата мрежа. (Срещу 1 и 100)",
+  "eas_newGrid_sizePrompt": "Моля въведете размерата на новата мрежа. (Между 1 и 100)",
   "eas_newGrid_invalidValue": "Невалидна стойност. Използване на размера по подразбиране (64x64).",
   "eas_noMobileText": "Това приложение изисква един компютърен браузър за да работи правилно."
 }
