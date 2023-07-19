@@ -14,6 +14,48 @@ function PreStart(props) {
     )
 }
 
+function EndScreen(props) {
+    const {t} = useTranslation();
+    const {reset, winner, isP2Ai} = props;
+    let winText = undefined;
+
+    switch (winner) {
+        case 'tie':
+            winText = 0;
+            break;
+        case 'X':
+            winText = 1;
+            break;
+        case 'O':
+            if (isP2Ai === true) {
+                winText = 2;
+            }
+            else {
+                winText = 3;
+            }
+            break;
+        default:
+            break;
+    }
+
+    return(
+        <div className="ttt_endScreen">
+            <h2>{
+                winText === 0 
+                ? t("ttt_endScreen_winner_tie")
+                : winText === 1
+                ? t("ttt_endScreen_winner_player1")
+                : winText === 2
+                ? t("ttt_endScreen_winner_computer")
+                : winText === 3
+                ? t("ttt_endScreen_winner_player2")
+                : 'error'
+            }</h2>
+            <button className="btn" onClick={reset}>{t("ttt_endScreen_resetBtn")}</button>
+        </div>
+    )
+}
+
 function Cell(props) {
     const {index, handleClick, board} = props;
     return(
@@ -114,7 +156,7 @@ function GameScreen(props) {
           if (isFull.length === 9) {
             return 'tie';
           }
-          
+
           return null;
     }
 
@@ -139,6 +181,11 @@ function TicTacToe(props) {
     const [gameState, setGameState] = useState(0);
     const [isP2Ai, setP2] = useState(true);
     const [gameWinner, setGameWinner] = useState(null);
+
+    function resetGame() {
+        setGameWinner(null);
+        setGameState(0);
+    }
     
     return(
         <>
@@ -146,7 +193,7 @@ function TicTacToe(props) {
             <h1 className="ttt_mainTitle">{t("ttt_mainTitle")}</h1>
             {gameState === 0 ? <PreStart setGameState={setGameState} setP2={setP2} isP2Ai={isP2Ai} /> : <></>}
             {gameState === 1 ? <GameScreen isP2Ai={isP2Ai} setGameState={setGameState} setGameWinner={setGameWinner} /> : <></>}
-            {gameState === 2 ? <>Game winner: {gameWinner} </> : <></>}
+            {gameState === 2 ? <EndScreen reset={resetGame} winner={gameWinner} isP2Ai={isP2Ai} /> : <></>}
         </>
     )
 }
