@@ -6,10 +6,20 @@
     align-items: center;
 }
 
+.ttt_preStart_controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
 .ttt_mainTitle {
   background: #F7971E;
   background: linear-gradient(to right, #FFD200, #F7971E);
   margin-bottom: 0;
+}
+
+.ttt_gameScreen {
+  margin-top: .5rem;
 }
 
 .ttt_gameBoard {
@@ -17,6 +27,8 @@
   grid-template-areas: '0 1 2'
   '3 4 5'
   '6 7 8';
+
+  gap: .2rem;
 }
 
 .ttt_gameBoard_square {
@@ -26,6 +38,15 @@
   display: flex;
   justify-content: center;
   align-items: center ;
+  border: none;
+  background-color: rgb(44,44,47);
+  color: white;
+  transition: .2s all;
+  font-weight: bolder;
+}
+
+.ttt_gameBoard_square:hover {
+  background-color: rgb(54,54,57);
 }
 
 .ttt_gameBoard_0 {

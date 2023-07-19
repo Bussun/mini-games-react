@@ -10,8 +10,10 @@ function PreStart(props) {
     return(
         <div className='ttt_preStart'>
             <h2 className="ttt_preStart_subTitle text_center">{t("ttt_preStart_subTitle")}</h2>
-            <button className="btn" onClick={() => setGameState(1)}>{t("ttt_startGameBtn")}</button>
-            <button className="btn" onClick={() => setP2(!isP2Ai)}>P2 is CPU: {isP2Ai ? 'true' : 'false'}</button>
+            <div className="ttt_preStart_controls">
+                <button className="btn" onClick={() => setP2(!isP2Ai)}>{isP2Ai === true ? t("ttt_preStart_CPU_enabled") : t("ttt_preStart_CPU_disabled")}</button>
+                <button className="btn" onClick={() => setGameState(1)}>{t("ttt_startGameBtn")}</button>
+            </div>
         </div>
     )
 }
@@ -146,20 +148,20 @@ function GameScreen(props) {
             [2, 5, 8],
             [0, 4, 8],
             [2, 4, 6]
-          ];
-          for (let i = 0; i < winningCases.length; i++) {
-            const [a, b, c] = winningCases[i];
-            if (newBoard[a] && newBoard[a] === newBoard[b] && newBoard[a] === newBoard[c]) {
-              return newBoard[a];
-            }
+        ];
+        for (let i = 0; i < winningCases.length; i++) {
+          const [a, b, c] = winningCases[i];
+          if (newBoard[a] && newBoard[a] === newBoard[b] && newBoard[a] === newBoard[c]) {
+            return newBoard[a];
           }
+        }
 
-          let isFull = newBoard.filter(val => val !== null);
-          if (isFull.length === 9) {
-            return 'tie';
-          }
+        let isFull = newBoard.filter(val => val !== null);
+        if (isFull.length === 9) {
+          return 'tie';
+        }
 
-          return null;
+        return null;
     }
 
     return(

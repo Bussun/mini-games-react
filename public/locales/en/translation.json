@@ -30,6 +30,15 @@
 
     "ttt_docTitle": "Tic Tac Toe | Denis Mini Games",
     "ttt_mainTitle": "Tic Tac Toe",
+    "ttt_preStart_subTitle": "A classic!",
+    "ttt_preStart_CPU_enabled": "CPU: enabled",
+    "ttt_preStart_CPU_disabled": "CPU: disabled",
+    "ttt_startGameBtn": "Start game",
+    "ttt_endScreen_winner_tie": "It's a tie...",
+    "ttt_endScreen_winner_player1": "Player 1 won!",
+    "ttt_endScreen_winner_player2": "Player 2 won!",
+    "ttt_endScreen_winner_computer": "The computer won...",
+    "ttt_endScreen_resetBtn": "Reset",
 
     "eas_docTitle": "Etch-a-sketch | Denis Mini Games",
     "eas_mainTitle": "Etch-a-sketch",

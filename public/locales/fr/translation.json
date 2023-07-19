@@ -31,13 +31,14 @@
     "ttt_docTitle": "Morpion | Mini jeux de Denis",
     "ttt_mainTitle": "Morpion",
     "ttt_preStart_subTitle": "Un classique!",
+    "ttt_preStart_CPU_enabled": "CPU: activé",
+    "ttt_preStart_CPU_disabled": "CPU: désactivé",
     "ttt_startGameBtn": "Commencer",
     "ttt_endScreen_winner_tie": "Personne n'a gagné...",
     "ttt_endScreen_winner_player1": "Le joueur 1 a gagné!",
     "ttt_endScreen_winner_player2": "Le joueur 2 a gagné!",
     "ttt_endScreen_winner_computer": "L'ordinateur a gagné...",
     "ttt_endScreen_resetBtn": "Réinitialiser",
-
 
     "eas_docTitle": "Écran magique | Mini Jeux de Denis",
     "eas_mainTitle": "Écran magique",
