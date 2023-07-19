@@ -10,3 +10,38 @@
   background: linear-gradient(to right, #FFD200, #F7971E);
   margin-bottom: 0;
 }
+
+.ttt_gameBoard {
+  display: grid;
+  grid-template-areas: '0 1 2'
+  '3 4 5'
+  '6 7 8';
+}
+
+.ttt_gameBoard_0 {
+  grid-area: '0';
+}
+.ttt_gameBoard_1 {
+  grid-area: '1';
+}
+.ttt_gameBoard_2 {
+  grid-area: '2';
+}
+.ttt_gameBoard_3 {
+  grid-area: '3';
+}
+.ttt_gameBoard_4 {
+  grid-area: '4';
+}
+.ttt_gameBoard_5 {
+  grid-area: '5';
+}
+.ttt_gameBoard_6 {
+  grid-area: '6';
+}
+.ttt_gameBoard_7 {
+  grid-area: '7';
+}
+.ttt_gameBoard_8 {
+  grid-area: '8';
+}

@@ -6,6 +6,7 @@
 nav {
     display: flex;
     justify-content: end;
+    gap: 1rem;
 
     margin: 1rem .25rem;
 }
