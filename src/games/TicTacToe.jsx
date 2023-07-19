@@ -4,11 +4,13 @@ import BackHome from '../Components/BackHome';
 import './TicTacToe.css';
 
 function PreStart(props) {
+    const {t} = useTranslation();
     const { setGameState, isP2Ai, setP2 } = props;
+
     return(
-        <div>
-            <h2>Work In Progress / En cours de création / В процес на създаване</h2>
-            <button className="btn" onClick={() => setGameState(1)}>Start Game</button>
+        <div className='ttt_preStart'>
+            <h2 className="ttt_preStart_subTitle text_center">{t("ttt_preStart_subTitle")}</h2>
+            <button className="btn" onClick={() => setGameState(1)}>{t("ttt_startGameBtn")}</button>
             <button className="btn" onClick={() => setP2(!isP2Ai)}>P2 is CPU: {isP2Ai ? 'true' : 'false'}</button>
         </div>
     )
@@ -162,7 +164,6 @@ function GameScreen(props) {
 
     return(
         <div className="ttt_gameScreen">
-            <h2>texte au pif pour l'instant</h2>
             <Board handleClick={handleClick} board={board} />
         </div>
     )
