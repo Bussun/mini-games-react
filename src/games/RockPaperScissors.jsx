@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { FaHandPaper, FaHandRock, FaHandScissors, FaPlus, FaMinus } from "react-icons/fa";
+import { FaHandPaper, FaHandRock, FaHandScissors, FaPlus, FaMinus, FaRegTimesCircle } from "react-icons/fa";
 import BackHome from "../Components/BackHome";
 import './RockPaperScissors.css';
 
@@ -106,39 +106,31 @@ function GameScreen(props) {
   function Player(props) {
     const {name, score, lastAction} = props;
     return(
-      <div>
-        <p>{name}</p>
-        <p>{t('rps_gameScreen_playerObj_score')} {score}</p>
-        <p>{t('rps_gameScreen_playerObj_lastAction')} <ShowActionLocale action={lastAction} /></p>
+      <div className="rps_gameScreen_playerObj">
+        <p className="rps_gameScreen_playerObj_name">{name}</p>
+        <span>{t('rps_gameScreen_playerObj_score')} {score}</span>
+        <span>{t('rps_gameScreen_playerObj_lastAction')} <ShowAction action={lastAction} /></span>
       </div>
     )
   }
 
-  function ShowActionLocale(props) {
+  function ShowAction(props) {
     const {action} = props;
-    let ret;
     switch (action) {
       case 'paper':
-        ret = t("rps_gameScreen_actionBtn_paper");
-        break;
+        return(<FaHandPaper />);
       case 'rock':
-        ret = t("rps_gameScreen_actionBtn_rock");
-        break;
+        return(<FaHandRock />);
       case 'scissors':
-        ret = t("rps_gameScreen_actionBtn_scissors");
-        break;
+        return(<FaHandScissors />);
       default:
-        break;
+        return(<FaRegTimesCircle />)
     }
-
-    return(
-      <>{ret}</>
-    )
   }
 
   return(
     <div className="rps_gameScreen">
-      <h2 className="rps_gameScreen_scoreGoal">{t('rps_gameScreen_scoreGoal', {scoreGoal})}</h2>
+      <h2 className="rps_gameScreen_scoreGoal text_center">{t('rps_gameScreen_scoreGoal', {scoreGoal})}</h2>
       <div className="rps_gameScreen_players">
         <Player name={t("rps_gameScreen_playerObj_player1")} score={playerScore} lastAction={playerMove} />
         <Player name={t("rps_gameScreen_playerObj_computer")} score={computerScore} lastAction={computerMove} />
@@ -168,8 +160,8 @@ function GameEnded(props) {
   const { t } = useTranslation();
   return(
     <div className="rps_gameEnded">
-      <h2>{t("rps_gameEnded")}</h2>
-      <h2>{finalWinner === 1 ? t("rps_winner_player") : finalWinner === 2 ? t("rps_winner_computer") : "undefined"}</h2>
+      <h2 className="text_center">{t("rps_gameEnded")}</h2>
+      <h2 className="text_center">{finalWinner === 1 ? t("rps_winner_player") : finalWinner === 2 ? t("rps_winner_computer") : "undefined"}</h2>
       <button onClick={resetGame} className="btn">{t("rps_gameEnded_resetBtn")}</button>
     </div>
   )

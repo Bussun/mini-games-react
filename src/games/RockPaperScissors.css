@@ -59,6 +59,18 @@
 .rps_gameScreen_players {
     display: flex;
     gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.rps_gameScreen_playerObj {
+    display: flex;
+    flex-direction: column;
+}
+
+.rps_gameScreen_playerObj_name {
+    font-weight: bolder;
+    font-size: 1.2rem;
 }
 
 .rps_gameScreen_buttons {

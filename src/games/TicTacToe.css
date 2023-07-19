@@ -32,9 +32,9 @@
 }
 
 .ttt_gameBoard_square {
-  padding: 2rem;
-  max-width: 2rem;
-  max-height: 2rem;
+  padding: 3rem;
+  max-width: 3rem;
+  max-height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center ;
@@ -43,6 +43,7 @@
   color: white;
   transition: .2s all;
   font-weight: bolder;
+  border-radius: 5px;
 }
 
 .ttt_gameBoard_square:hover {
