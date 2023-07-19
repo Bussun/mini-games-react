@@ -4,11 +4,12 @@ import BackHome from '../Components/BackHome';
 import './TicTacToe.css';
 
 function PreStart(props) {
-    const { setGameState } = props;
+    const { setGameState, isP2Ai, setP2 } = props;
     return(
         <div>
             <h2>Work In Progress / En cours de création / В процес на създаване</h2>
-            <button className="btn" onClick={() => setGameState(true)}>Start Game</button>
+            <button className="btn" onClick={() => setGameState(1)}>Start Game</button>
+            <button className="btn" onClick={() => setP2(!isP2Ai)}>P2 is CPU: {isP2Ai ? 'true' : 'false'}</button>
         </div>
     )
 }
@@ -40,7 +41,7 @@ function Board(props) {
 function GameScreen(props) {
     const {t} = useTranslation();
 
-    const {isP2Ai} = props;
+    const {isP2Ai, setGameState, setGameWinner} = props;
     const [currentPlayer, setCurrentPlayer] = useState(1);
     const [board, setBoard] = useState([null,null,null,null,null,null,null,null,null]);
 
@@ -54,7 +55,7 @@ function GameScreen(props) {
         updatedBoard[index] = marker;
         let winner = checkWinner(updatedBoard);
         if (winner !== null) {
-            // End game
+            endGame(winner);
         }
 
         console.log(isP2Ai);
@@ -64,7 +65,7 @@ function GameScreen(props) {
             updatedBoard[computerMove] = 'O';
             winner = checkWinner(updatedBoard);
             if (winner !== null) {
-                // End game
+                endGame(winner);
             }
             console.log(updatedBoard)
         }
@@ -86,7 +87,36 @@ function GameScreen(props) {
         return finalArray[randomIndex];
     }
 
-    function checkWinner(newBoard) {}
+    function endGame(winner) {
+        setGameWinner(winner);
+        setGameState(2);
+    }
+
+    function checkWinner(newBoard) {
+        const winningCases = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+          ];
+          for (let i = 0; i < winningCases.length; i++) {
+            const [a, b, c] = winningCases[i];
+            if (newBoard[a] && newBoard[a] === newBoard[b] && newBoard[a] === newBoard[c]) {
+              return newBoard[a];
+            }
+          }
+
+          let isFull = newBoard.filter(val => val !== null);
+          if (isFull.length === 9) {
+            return 'tie';
+          }
+          
+          return null;
+    }
 
     return(
         <div className="ttt_gameScreen">
@@ -106,14 +136,17 @@ function TicTacToe(props) {
         }
     }, []);
 
-    const [gameStarted, setGameState] = useState(false);
+    const [gameState, setGameState] = useState(0);
     const [isP2Ai, setP2] = useState(true);
+    const [gameWinner, setGameWinner] = useState(null);
     
     return(
         <>
             <BackHome />
             <h1 className="ttt_mainTitle">{t("ttt_mainTitle")}</h1>
-            {gameStarted === false ? <PreStart setGameState={setGameState} /> : <GameScreen isP2Ai={isP2Ai} setGameState={setGameState} />}
+            {gameState === 0 ? <PreStart setGameState={setGameState} setP2={setP2} isP2Ai={isP2Ai} /> : <></>}
+            {gameState === 1 ? <GameScreen isP2Ai={isP2Ai} setGameState={setGameState} setGameWinner={setGameWinner} /> : <></>}
+            {gameState === 2 ? <>Game winner: {gameWinner} </> : <></>}
         </>
     )
 }
