@@ -71,6 +71,7 @@
 .rps_gameScreen_playerObj_name {
     font-weight: bolder;
     font-size: 1.2rem;
+    margin-top: 0;
 }
 
 .rps_gameScreen_buttons {
