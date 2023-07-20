@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './i18n';
-import {createBrowserRouter, RouterProvider, Navigate} from 'react-router-dom';
+import {createHashRouter, RouterProvider, Navigate} from 'react-router-dom';
 import './main.css';
 
 import WelcomePage from './WelcomePage';
@@ -9,7 +9,7 @@ import TicTacToe from './games/TicTacToe';
 import RockPaperScissors from './games/RockPaperScissors';
 import EtchASketch from './games/EtchASketch';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <WelcomePage />
