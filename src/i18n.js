@@ -10,6 +10,9 @@ i18next.use(initReactI18next)
     supportedLngs: ["fr", "en", "bg"],
     fallbackLng: "en",
     nonExplicitSupportedLngs: true,
+    backend: {
+        loadPath: `./locales/{{lng}}/translation.json`
+    },
     interpolation: {
         escapeValue: false,
     },
