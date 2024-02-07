@@ -8,6 +8,7 @@ import WelcomePage from './WelcomePage';
 import TicTacToe from './games/TicTacToe';
 import RockPaperScissors from './games/RockPaperScissors';
 import EtchASketch from './games/EtchASketch';
+import Game2048 from './games/2048';
 
 const router = createHashRouter([
   {
@@ -32,6 +33,10 @@ const router = createHashRouter([
       {
         path: 'etch-a-sketch',
         element: <EtchASketch />
+      },
+      {
+        path: '2048',
+        element: <Game2048 />
       }
     ]
   }

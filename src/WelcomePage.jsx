@@ -28,6 +28,7 @@ function WelcomePage(props) {
                 <div className="gameLinks">
                     <Link className="gameLink" to="./games/rock-paper-scissors">{t("mainPage_gameBtns_rps")}</Link>
                     <Link className="gameLink" to="./games/tic-tac-toe">{t("mainPage_gameBtns_tictactoe")}</Link>
+                    <Link className="gameLink" to="./games/2048">{t("mainPage_gameBtns_2048")}</Link>
                     {isMobile === true ? <></> : <Link className="gameLink" to="./games/etch-a-sketch">{t("mainPage_gameBtns_etchsketch")}</Link>}
                 </div>
             </div>
