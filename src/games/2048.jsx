@@ -1,4 +1,5 @@
 import {useState, useEffect, useRef} from 'react';
+import { useTranslation } from 'react-i18next';
 import BackHome from '../Components/BackHome';
 import "./2048.css";
 
@@ -17,6 +18,7 @@ function Game2048(props) {
         <>
             <BackHome />
             <h1>2048</h1>
+            <h2>Bonsoir </h2>
         </>
     )
 }
